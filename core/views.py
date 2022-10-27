@@ -37,29 +37,34 @@ def delete_postos(request, id_posto):
     return redirect("lista_postos")
 
 
-def read_vacinas(request):
+def vac_index(request):
     vacina = vacinas.objects.all()
     pacote = {"vacinaChave": vacina}
-    return render(request, "vacinas.html", pacote)
+    return render(request, "vac-index.html", pacote)
 
-def create_vacinas(request):
+def vac_create(request):
     form = vacinasForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect("lista_vacinas")
     
     pacote = {"form_vacinas": form}
-    return render(request, "create_vacinas.html", pacote)
+    return render(request, "vac-create.html", pacote)
 
-def update_vacinas(request, id_vacina):
+def  vac_show(request, id_vacina):
+    vacina = vacinas.objects.get(pk = id_vacina)
+    pacote = {"vacinaChave": vacina}
+    return render(request, "vac-show.html",pacote)
+
+def vac_update(request, id_vacina):
     vacina = vacinas.objects.get(pk = id_vacina)
     form = vacinasForm(request.POST or None, instance = vacina)
     if form.is_valid():
         form.save()
         return redirect("lista_vacinas")
     
-    pacote = {"form_vacinas": form}
-    return render(request, "create_vacinas.html", pacote)
+    pacote = {"form_vacinas": form , "vacinaChave": vacina}
+    return render(request, "vac-update.html", pacote)
 
 def delete_vacinas(request, id_vacina):
     vacina = vacinas.objects.get(pk = id_vacina)

@@ -1,0 +1,101 @@
+{%extends 'layouts/pages-blank.html'%}
+
+{%block title %}{{vacinaChave.vac_tipo_vacina}}{%endblock title%}
+
+{%block page-name%}{{vacinaChave.vac_tipo_vacina}}{%endblock page-name%}
+
+{%block directory%}
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item">Vacinas</li>
+<li class="breadcrumb-item">Listar Vacinas</li>
+<li class="breadcrumb-item active">{{vacinaChave.vac_tipo_vacina}}</li>
+{%endblock directory%}
+
+{%block main-content%}
+<div class="row">
+    <div class="col-xl-4">
+
+      <div class="card">
+        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+          <h2>{{vacinaChave.vac_tipo_vacina}}</h2>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xl-8">
+
+      <div class="card">
+        <div class="card-body pt-3">
+          <div class="tab-content pt-2">
+
+            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+              <h5 class="card-title">Descrição</h5>
+              <p class="small fst-italic">{{vacinaChave.vac_descricao}}</p>
+
+              <h5 class="card-title">Detalhes</h5>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label ">Tipo Vacina</div>
+                <div class="col-lg-9 col-md-8">{{vacinaChave.vac_tipo_vacina}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Quantidade</div>
+                <div class="col-lg-9 col-md-8">{{vacinaChave.vac_quantidade}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Disponibilidade</div>
+                <div class="col-lg-9 col-md-8">
+                  {%if vacinaChave.vac_disponibilidade%}
+                    <div class="col-lg-9 col-md-8">Disponível</div>
+                  {% else %}
+                    <div class="col-lg-9 col-md-8">Indisponível</div>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Contraindicações</div>
+                <div class="col-lg-9 col-md-8">{{vacinaChave.vac_contraindicacao}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Reações</div>
+                <div class="col-lg-9 col-md-8">{{vacinaChave.vac_reacoes}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Lote</div>
+                <div class="col-lg-9 col-md-8">{{vacinaChave.vac_lote}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Fabricante</div>
+                <div class="col-lg-9 col-md-8">{{vacinaChave.vac_fabricante}}</div>
+              </div>
+              
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Data de fabricação</div>
+                <div class="col-lg-9 col-md-8">{{vacinaChave.vac_data_fabricacao}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Data de Validade</div>
+                <div class="col-lg-9 col-md-8">{{vacinaChave.vac_data_validade}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4 col-md-4 label">Data de Recebimento</div>
+                <div class="col-lg-8 col-md-8">{{vacinaChave.vac_data_recebimento}}</div>
+              </div>
+            </div>
+          </div><!-- End Bordered Tabs -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+{%endblock main-content%}

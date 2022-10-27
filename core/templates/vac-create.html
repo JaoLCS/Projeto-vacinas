@@ -1,0 +1,68 @@
+{%extends 'layouts/pages-blank.html'%}
+
+{%block title %}Cadastro de Vacinas{%endblock title%}
+
+{%block page-name%}Cadastrar Nova Vacina{%endblock page-name%}
+
+{%block directory%}
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item">Vacinas</li>
+<li class="breadcrumb-item">Listar Vacinas</li>
+<li class="breadcrumb-item active">Cadastrar Vacina</li>
+{%endblock directory%}
+
+{%block main-content%}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Cadastrar Vacina</h5>
+
+      <!-- Vertical Form -->
+      <form class="row g-3" id="create_form" method="POST">
+        {% csrf_token %}
+        <div class="col-12">
+          <label for="id_vac_tipo_vacina" class="form-label">Tipo Vacina</label>
+          {{form_vacinas.vac_tipo_vacina}}
+        </div>
+        <div class="col-12">
+          <label for="id_vac_descricao" class="col-sm-2 col-form-label">Descrição</label>
+          <textarea class="form-control" style="height: 100px" id= "id_vac_descricao" name="vac_descricao"></textarea>
+        </div>
+        <div class="col-3">
+          <label for="id_vac_quantidade" class="form-label">Quantidade</label>
+          {{form_vacinas.vac_quantidade}}
+        </div>
+        <div class="col-3">
+          <label for="id_vac_data_fabricacao" class="form-label">Data de Fabricação</label>
+          <input type="date" class="form-control" id="id_vac_data_fabricacao" name="vac_data_fabricacao">
+        </div>
+        <div class="col-3">
+          <label for="id_vac_data_validade" class="form-label">Data de Validade</label>
+          <input type="date" class="form-control" id="id_vac_data_validade" name="vac_data_validade">
+        </div>
+        <div class="col-3">
+          <label for="id_vac_data_recebimento" class="form-label">Data de Recebimento</label>
+          <input type="date" class="form-control" id="id_vac_data_recebimento" name="vac_data_recebimento">
+        </div>
+        <div class="col-12">
+          <label for="id_vac_contraindicacao" class="col-sm-2 col-form-label">Contraindicações</label>
+          <textarea class="form-control" style="height: 100px" id= "id_vac_contraindicacao" name="vac_contraindicacao"></textarea>
+        </div>
+        <div class="col-12">
+          <label for="id_vac_reacoes" class="col-sm-2 col-form-label">Reações</label>
+          <textarea class="form-control" style="height: 100px" id= "id_vac_reacoes" name="vac_reacoes"></textarea>
+        </div>
+        <div class="col-6">
+          <label for="id_vac_lote" class="form-label">Lote</label>
+          {{form_vacinas.vac_lote}}
+        </div>  
+        <div class="col-6">
+          <label for="id_vac_fabricante" class="form-label">Fabricante</label>
+          {{form_vacinas.vac_fabricante}}
+        </div>        
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+      </form><!-- Vertical Form -->
+    </div>
+  </div>
+{%endblock main-content%}

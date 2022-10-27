@@ -21,12 +21,15 @@ from core.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index),
+    #Postos
     path('postos/', read_postos, name= "lista_postos"),
     path('create_postos/', create_postos, name= "create_postos"),
     path('update_postos/<int:id_posto>', update_postos, name= "update_postos"),
     path('delete_postos/<int:id_posto>', delete_postos, name= "delete_postos"),
-    path('vacinas/', read_vacinas, name= "lista_vacinas"),
-    path('create_vacinas/', create_vacinas, name= "create_vacinas"),
-    path('update_vacinas/<int:id_vacina>', update_vacinas, name= "update_vacinas"),
+    #Vacinas
+    path('vacindex/', vac_index, name= "lista_vacinas"),
+    path('vacreate/', vac_create, name= "create_vacinas"),
+    path('vacshow/<int:id_vacina>', vac_show, name= "show_vacinas"),
+    path('vacupdate/<int:id_vacina>', vac_update, name= "update_vacinas"),
     path('delete_vacinas/<int:id_vacina>', delete_vacinas, name= "delete_vacinas"),
 ]
