@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>OOOOOIIIIIIIIIIII</h1>
+    <table border = 1>
+        <tr>
+            <td>Tipo</td>
+            <td>Lote</td>
+            <td>Fabricante</td>
+            <td>Descrição</td>
+            <td>Quantidade</td>
+            <td>Disponibilidade</td>
+            <td>Contraindicação</td>
+            <td>Reações</td>
+            <td>Data Fabricação</td>
+            <td>Data Validade</td>
+            <td>Data Recebimento</td>
+
+
+        </tr>
+        
+        {%for i in vacinaChave%}
+            <tr>
+                <td>{{i.vac_tipo_vacina}} </td>
+                <td>{{i.vac_lote}} </td>
+                <td>{{i.vac_fabricante}} </td>
+                <td>{{i.vac_descricao}} </td>
+                <td>{{i.vac_quantidade}} </td>
+                <td>{{i.vac_disponibilidade}} </td>
+                <td>{{i.vac_contraindicacao}} </td>
+                <td>{{i.vac_reacoes}} </td>
+                <td>{{i.vac_data_fabricacao}} </td>
+                <td>{{i.vac_data_validade}} </td>
+                <td>{{i.vac_data_recebimento}} </td>
+                <td>
+                    <a href="{%url 'update_vacinas' i.id%}">
+                      <button>att</button>   
+                    </a>
+                </td>
+                <td><a href="{%url 'delete_vacinas' i.id%}">Excluir</a></td>
+            </tr>
+        {%endfor%}
+    </table>
+    <a href="{%url 'create_vacinas'%}">
+        <button>aaaaa</button>
+       </a>
+</body>
+</html>
