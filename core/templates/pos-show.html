@@ -1,14 +1,14 @@
 {%extends 'layouts/pages-blank.html'%}
 
-{%block title %}Posto X{%endblock title%}
+{%block title %}{{postoChave.pos_nome}}{%endblock title%}
 
-{%block page-name%}Posto X{%endblock page-name%}
+{%block page-name%}{{postoChave.pos_nome}}{%endblock page-name%}
 
 {%block directory%}
 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
 <li class="breadcrumb-item">Postos</li>
-<li class="breadcrumb-item">Listar Postos</li>
-<li class="breadcrumb-item active">Exibir Posto X</li>
+<li class="breadcrumb-item"><a href="{%url 'lista_postos'%}">Listar Postos</a></li>
+<li class="breadcrumb-item active">Exibir {{postoChave.pos_nome}}</li>
 {%endblock directory%}
 
 
@@ -18,9 +18,7 @@
 
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
-          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-          <h2>Coronavac</h2>
+          <h2>{{postoChave.pos_nome}}</h2>
         </div>
       </div>
 
@@ -36,37 +34,37 @@
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label ">Nome</div>
-                <div class="col-lg-9 col-md-8">Coronavac</div>
+                <div class="col-lg-9 col-md-8">{{postoChave.pos_nome}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Cep</div>
-                <div class="col-lg-9 col-md-8">1395271</div>
+                <div class="col-lg-9 col-md-8">{{postoChave.pos_cep}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Bairro</div>
-                <div class="col-lg-9 col-md-8">Disponível</div>
+                <div class="col-lg-9 col-md-8">{{postoChave.pos_bairro}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Rua</div>
-                <div class="col-lg-9 col-md-8">Sua mão pode coçar, seu pé pode cair, mal de parkins, alzheimer</div>
+                <div class="col-lg-9 col-md-8">{{postoChave.pos_rua}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Número</div>
-                <div class="col-lg-9 col-md-8">um mol</div>
+                <div class="col-lg-9 col-md-8">{{postoChave.pos_numero}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Logradouro</div>
-                <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                <div class="col-lg-9 col-md-8">{{postoChave.pos_logradouro}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Telefone</div>
-                <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                <div class="col-lg-9 col-md-8">{{postoChave.pos_telefone}}</div>
               </div>
               </div>
             </div>

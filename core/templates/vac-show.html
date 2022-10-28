@@ -7,8 +7,8 @@
 {%block directory%}
 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
 <li class="breadcrumb-item">Vacinas</li>
-<li class="breadcrumb-item">Listar Vacinas</li>
-<li class="breadcrumb-item active">{{vacinaChave.vac_tipo_vacina}}</li>
+<li class="breadcrumb-item"><a href="{%url 'lista_vacinas'%}">Listar Vacinas</a></li>
+<li class="breadcrumb-item active">Exibir {{vacinaChave.vac_tipo_vacina}}</li>
 {%endblock directory%}
 
 {%block main-content%}

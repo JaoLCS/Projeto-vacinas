@@ -10,10 +10,12 @@
 {%endblock directory%}
 
 {%block main-content%}
-<button type="button" class="btn btn-primary">
-  <i class="bx bxs-edit"></i>
-  Cadastrar
-</button>
+<a href= "{% url 'create_vacinas'%}"> 
+  <button type="button" class="btn btn-primary">
+    <i class="bx bxs-edit"></i>
+    Cadastrar Vacina
+  </button>
+  </a>
 <!-- Default Table -->
 <table class="table">
   <thead>
@@ -34,9 +36,13 @@
     {%for i in vacinaChave%}
     <tr>
         <td>{{i.id}} </td>
-        <td>{{i.vac_tipo_vacina}} </td>
-        <td>{{i.vac_quantidade}} </td>
-        <td>{{i.vac_disponibilidade}} </td>
+        <td>{{i.vac_tipo_vacina}}</td>
+        <td>{{i.vac_quantidade}}</td>
+        {%if i.vac_disponibilidade%}
+        <td><span class="badge bg-success">Disponível</span></td>
+        {% else %}
+        <td><span class="badge bg-danger">Indisponível</span></td>
+        {% endif %}
         <td>{{i.vac_data_fabricacao}} </td>
         <td>{{i.vac_data_validade}} </td>
         <td>{{i.vac_data_recebimento}} </td>

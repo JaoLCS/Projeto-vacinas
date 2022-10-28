@@ -22,9 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index),
     #Postos
-    path('postos/', read_postos, name= "lista_postos"),
-    path('create_postos/', create_postos, name= "create_postos"),
-    path('update_postos/<int:id_posto>', update_postos, name= "update_postos"),
+    path('posindex/', pos_index, name= "lista_postos"),
+    path('poscreate/', pos_create, name= "create_postos"),
+    path('posupdate/<int:id_posto>', pos_update, name= "update_postos"),
+    path('poshow/<int:id_vacina>', pos_show, name= "show_postos"),
     path('delete_postos/<int:id_posto>', delete_postos, name= "delete_postos"),
     #Vacinas
     path('vacindex/', vac_index, name= "lista_vacinas"),

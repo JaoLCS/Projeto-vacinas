@@ -1,0 +1,64 @@
+{%extends 'layouts/pages-blank.html'%}
+
+{%block title %}{{postoChave.pos_nome}}{%endblock title%}
+
+{%block page-name%}Editar posto: {{postoChave.pos_nome}}{%endblock page-name%}
+
+{%block directory%}
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item">Postos</li>
+<li class="breadcrumb-item"><a href="{%url 'lista_postos'%}">Listar Postos</a></li>
+<li class="breadcrumb-item active">Editar {{postoChave.pos_nome}}</li>
+{%endblock directory%}
+
+
+{%block main-content%}
+<div class="card">
+    <div class="card-body">
+      
+      <!-- Vertical Form -->
+      <form class="row g-3" method="POST" id="create_form">
+        {% csrf_token %}
+        <h5 class="card-title">Informações Gerais</h5>
+        <div class="col-12">
+          <label for="inputNanme4" class="form-label">Nome</label>
+          {{form_postos.pos_nome}}
+        </div>
+        <div class="col-3">
+            <label for="inputNanme4" class="form-label">Horário de funcionamento</label>
+            <input type="text" class="form-control" id="inputNanme4">
+        </div>
+        <h5 class="card-title">Localização</h5>
+        <div class="col-12">
+            <label for="id_pos_cep" class="form-label">Cep</label>
+            {{form_postos.pos_cep}}
+        </div>
+        <div class="col-4">
+            <label for="id_pos_bairo" class="form-label">Bairro</label>
+            {{form_postos.pos_bairro}}
+        </div>
+        <div class="col-4">
+            <label for="id_pos_rua" class="form-label">Rua</label>
+            {{form_postos.pos_rua}}
+        </div>
+        <div class="col-2">
+          <label for="id_pos_numero" class="col-sm-6 form-label">Número</label>
+          {{form_postos.pos_numero}}
+        </div>
+        <div class="col-12">
+            <label for="id_pos_logradouro" class="form-label">Logradouro</label>
+            {{form_postos.pos_logradouro}}
+        </div>
+        <h5 class="card-title">Contato</h5>
+        <div class="col-4">
+            <label for="id_pos_telefone" class="form-label">Telefone</label>
+            {{form_postos.pos_telefone}}
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form><!-- Vertical Form -->
+
+    </div>
+  </div>
+{%endblock main-content%}

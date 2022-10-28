@@ -12,6 +12,12 @@
 
 
 {%block main-content%}
+<a href= "{% url 'create_postos'%}"> 
+<button type="button" class="btn btn-primary">
+  <i class="bx bxs-edit"></i>
+  Cadastrar Posto
+</button>
+</a>
 <!-- Default Table -->
 <table class="table">
   <thead>
@@ -27,51 +33,22 @@
     </tr>
   </thead>
   <tbody>
+    {%for i in postoChave%}
     <tr>
-      <th scope="row">1</th>
-      <td>Vacina</td>
-      <td>Muito</td>
-      <td>Mió que tá tendo</td>      
-      <td>03/04/2003</td>      
-      <td>06/09/2022</td>      
-      <td>AAAAAA333333</td>
-      <td>Rodrigo</td>
-      <td>
-        <a href="#" class="text-primary fw-bold">Exibir</a>
-        <a href="#" class="text-primary fw-bold">Editar</a>
-        <a href="#" class="text-primary fw-bold">Deletar</a>
-      </td>
+        <td>{{i.id}}</td>
+        <td>{{i.pos_nome}} </td>
+        <td>{{i.pos_cep}} </td>
+        <td>{{i.pos_rua}} </td>
+        <td>{{i.pos_bairro}} </td>
+        <td>{{i.pos_numero}} </td>
+        <td>{{i.pos_telefone}} </td>
+        <td>
+          <a href="{%url 'show_postos' i.id%}" class="text-primary fw-bold">Exibir</a>
+          <a href="{%url 'update_postos' i.id%}" class="text-primary fw-bold">Editar</a>
+          <a href="{%url 'delete_postos' i.id%}" class="text-primary fw-bold">Excluir</a>
+        </td>
     </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Vacina</td>
-      <td>Muito</td>
-      <td>Mió que tá tendo</td>      
-      <td>03/04/2003</td>      
-      <td>06/09/2022</td>      
-      <td>AAAAAA333333</td>
-      <td>Rodrigo</td>
-      <td>
-        <a href="#" class="text-primary fw-bold">Exibir</a>
-        <a href="#" class="text-primary fw-bold">Editar</a>
-        <a href="#" class="text-primary fw-bold">Deletar</a>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Vacina</td>
-      <td>Muito</td>
-      <td>Mió que tá tendo</td>      
-      <td>03/04/2003</td>      
-      <td>06/09/2022</td>      
-      <td>AAAAAA333333</td>
-      <td>Rodrigo</td>
-      <td>
-        <a href="#" class="text-primary fw-bold">Exibir</a>
-        <a href="#" class="text-primary fw-bold">Editar</a>
-        <a href="#" class="text-primary fw-bold">Deletar</a>
-      </td>
-    </tr>
+    {%endfor%}
   </tbody>
 </table>
 <!-- End Default Table Example -->
