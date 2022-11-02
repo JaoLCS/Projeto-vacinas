@@ -69,10 +69,25 @@
               </div>
             </div>
           </div><!-- End Bordered Tabs -->
-
+        </div>
+        <div class="offset-5">
+          <a href= "{% url 'lista_postos_vacinas' postoChave.id%}"> 
+            <button type="button" class="btn btn-primary">
+              Listar Vacinas
+            </button>
+          </a>
+          <a href= "{%url 'update_postos' postoChave.id%}"> 
+            <button type="button" class="btn btn-primary">
+              Editar Posto
+            </button>
+          </a>
+          <a href= "{%url 'delete_postos' postoChave.id%}"> 
+            <button type="button" class="btn btn-danger">
+              Deletar Posto
+            </button>
+          </a>
         </div>
       </div>
-
     </div>
   </div>
 {%endblock main-content%}

@@ -19,13 +19,21 @@
       <!-- Vertical Form -->
       <form class="row g-3" id="create_form" method="POST">
         {% csrf_token %}
-        <div class="col-12">
+        <div class="col-4">
           <label for="id_vac_tipo_vacina" class="form-label">Tipo Vacina</label>
           {{form_vacinas.vac_tipo_vacina}}
         </div>
+        <div class="col-4">
+          <label for="id_vac_posto" class="form-label">Posto</label>
+          {{form_vacinas.vac_posto}}
+        </div>
+        <div class="col-4">
+          <label for="id_vac_disponibilidade" class="form-label">Disponibilidade</label>
+          {{form_vacinas.vac_disponibilidade}}
+        </div>
         <div class="col-12">
           <label for="id_vac_descricao" class="col-sm-2 col-form-label">Descrição</label>
-          <textarea class="form-control" style="height: 100px" id= "id_vac_descricao" name="vac_descricao">{{vacinaChave.vac_descricao}}</textarea>
+          {{form_vacinas.vac_descricao}}
         </div>
         <div class="col-3">
           <label for="id_vac_quantidade" class="form-label">Quantidade</label>
@@ -45,11 +53,11 @@
         </div>
         <div class="col-12">
           <label for="id_vac_contraindicacao" class="col-sm-2 col-form-label">Contraindicações</label>
-          <textarea class="form-control" style="height: 100px" id= "id_vac_contraindicacao" name="vac_contraindicacao">{{vacinaChave.vac_contraindicacao}}</textarea>
+          {{form_vacinas.vac_contraindicacao}}
         </div>
         <div class="col-12">
           <label for="id_vac_reacoes" class="col-sm-2 col-form-label">Reações</label>
-          <textarea class="form-control" style="height: 100px" id= "id_vac_reacoes" name="vac_reacoes">{{vacinaChave.vac_reacoes}}</textarea>
+          {{form_vacinas.vac_reacoes}}
         </div>
         <div class="col-6">
           <label for="id_vac_lote" class="form-label">Lote</label>

@@ -1,0 +1,61 @@
+{%extends 'layouts/pages-blank.html'%}
+
+{%block title %}Vacinas do {{postoChave.pos_nome}}{%endblock title%}
+{%block page-name%}Lista de Vacinas do Posto {{postoChave.pos_nome}}{%endblock page-name%}
+
+{%block directory%}
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item">Vacinas</li>
+<li class="breadcrumb-item active">Listar Vacinas</li>
+{%endblock directory%}
+
+{%block main-content%}
+<a href= "{% url 'create_postos_vacinas' postoChave.id%}"> 
+  <button type="button" class="btn btn-primary">
+    <i class="bx bxs-edit"></i>
+    Cadastrar Vacina
+  </button>
+  </a>
+<!-- Default Table -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tipo Vacina</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Disponibilidade</th>
+      <th scope="col">Data de Fabricação</th>     
+      <th scope="col">Data de Validade</th>     
+      <th scope="col">Data de Recebimento</th>     
+      <th scope="col">Lote</th>
+      <th scope="col">Fabricante</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for i in vacinasChave%}
+    <tr>
+        <td>{{i.id}} </td>
+        <td>{{i.vac_tipo_vacina}}</td>
+        <td>{{i.vac_quantidade}}</td>
+        {%if i.vac_disponibilidade%}
+        <td><span class="badge bg-success">Disponível</span></td>
+        {% else %}
+        <td><span class="badge bg-danger">Indisponível</span></td>
+        {% endif %}
+        <td>{{i.vac_data_fabricacao}} </td>
+        <td>{{i.vac_data_validade}} </td>
+        <td>{{i.vac_data_recebimento}} </td>
+        <td>{{i.vac_lote}} </td>
+        <td>{{i.vac_fabricante}} </td>
+        <td>
+            <a href="{%url 'show_vacinas' i.id%}">Exibir</a>
+            <a href="{%url 'update_vacinas' i.id%}">Atualizar</a>
+            <a href="{%url 'delete_vacinas' i.id%}">Excluir</a>
+        </td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+<!-- End Default Table Example -->
+{%endblock main-content%}

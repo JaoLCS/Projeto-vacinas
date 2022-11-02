@@ -21,10 +21,25 @@ def pos_create(request):
     pacote = {"form_postos": form}
     return render(request, "pos-create.html", pacote)
 
-def  pos_show(request, id_vacina):
-    posto = postos.objects.get(pk = id_vacina)
+def  pos_show(request, id_posto):
+    posto = postos.objects.get(pk = id_posto)
     pacote = {"postoChave": posto}
     return render(request, "pos-show.html",pacote)
+
+def  pos_vac_index(request, id_posto):
+    posto = postos.objects.get(pk = id_posto)
+    vacina = vacinas.objects.filter(vac_posto = id_posto)
+    pacote = {"postoChave": posto, "vacinasChave": vacina}
+    return render(request, "pos-vac-index.html",pacote)
+
+def pos_vac_create(request,id_posto):
+    form = vacinasForm(request.POST or None)
+    form.fields["vac_posto"].initial = id_posto
+    if form.is_valid():
+        form.save()       
+        return redirect("lista_vacinas")
+    pacote = {"form_vacinas": form}
+    return render(request, "pos-vac-create.html", pacote)
 
 def pos_update(request, id_posto):
     posto = postos.objects.get(pk = id_posto)
@@ -50,9 +65,8 @@ def vac_index(request):
 def vac_create(request):
     form = vacinasForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        form.save()       
         return redirect("lista_vacinas")
-    
     pacote = {"form_vacinas": form}
     return render(request, "vac-create.html", pacote)
 

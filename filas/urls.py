@@ -25,7 +25,10 @@ urlpatterns = [
     path('posindex/', pos_index, name= "lista_postos"),
     path('poscreate/', pos_create, name= "create_postos"),
     path('posupdate/<int:id_posto>', pos_update, name= "update_postos"),
-    path('poshow/<int:id_vacina>', pos_show, name= "show_postos"),
+    path('poshow/<int:id_posto>', pos_show, name= "show_postos"),
+    #Postos Específicos
+    path('posvacindex/<int:id_posto>', pos_vac_index, name= "lista_postos_vacinas"),
+    path('posvacreate/<int:id_posto>', pos_vac_create, name= "create_postos_vacinas"),
     path('delete_postos/<int:id_posto>', delete_postos, name= "delete_postos"),
     #Vacinas
     path('vacindex/', vac_index, name= "lista_vacinas"),
