@@ -64,9 +64,8 @@ def vac_index(request):
 
 def vac_day_index(request):
     hoje = timezone.now()
-    data = hoje.weekday()
+    data = hoje.isoweekday()
     vacina = vacinas.objects.filter(vac_disponibilidade = 1, vac_dias = data)
-
     pacote = {"vacinaChave": vacina}
     return render(request, "vac-day-index.html", pacote)
 

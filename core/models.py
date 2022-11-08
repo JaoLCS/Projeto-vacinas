@@ -6,7 +6,16 @@ from django.db import models
 # Create your models here.
 
 class dias(models.Model):
-    dis_dia = models.CharField(max_length = 20)
+    DIAS_CHOICES= [
+        [1, "Domingo"],
+        [2, "Segunda-feira"],
+        [3, "Terça-feira"],
+        [4, "Quarta-feira"],
+        [5, "Quinta-feira"],
+        [6, "Sexta-feira"],
+        [7, "Sábado"]
+    ]
+    dis_dia = models.CharField(max_length = 20 , choices= DIAS_CHOICES)
     def __str__(self):
         return (self.dis_dia)
     class Meta:
@@ -17,15 +26,7 @@ class vacinas(models.Model):
         [1, "Disponível"],
         [0, "Indisponível"]
     ]
-    # DIAS_CHOICES= [
-    #     [1, "Domingo"],
-    #     [2, "Segunda-feira"],
-    #     [3, "Terça-feira"],
-    #     [4, "Quarta-feira"],
-    #     [5, "Quinta-feira"],
-    #     [6, "Sexta-feira"],
-    #     [7, "Sábado"]
-    # ]
+
     vac_tipo_vacina = models.CharField(max_length = 120)
     vac_lote = models.CharField(max_length = 45)
     vac_fabricante = models.CharField(max_length = 45)
