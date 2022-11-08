@@ -20,7 +20,13 @@
           <h2>{{vacinaChave.vac_tipo_vacina}}</h2>
         </div>
       </div>
-
+      <div class="">
+        <a href= "{% url 'show_postos' vacinaChave.vac_posto.id%}"> 
+          <button type="button" class="btn btn-primary">
+            Visitar Posto
+          </button>
+        </a>
+      </div>
     </div>
 
     <div class="col-xl-8">
@@ -95,12 +101,16 @@
                 <div class="col-lg-4 col-md-4 label">Data de Recebimento</div>
                 <div class="col-lg-8 col-md-8">{{vacinaChave.vac_data_recebimento}}</div>
               </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-4 label">Dias:</div>
+                {%for dia in dias%}
+                <div class="">- {{dia}}</div>
+                {%endfor%}
+              </div>
             </div>
           </div><!-- End Bordered Tabs -->
-
         </div>
       </div>
-
-    </div>
+    </div>  
   </div>
 {%endblock main-content%}

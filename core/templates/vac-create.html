@@ -67,7 +67,14 @@
           <label for="id_vac_fabricante" class="form-label">Fabricante</label>
           {{form_vacinas.vac_fabricante}}
         </div>
-               
+        <div class="col-6">
+          <label for="id_vac_dias" class="form-label">Dias:</label>
+          <div>
+          {%for campo in form_vacinas.vac_dias%}
+          {{campo}}
+          {%endfor%}
+          </div>
+        </div>
 
         <div class="text-center">
           <button type="submit" class="btn btn-primary">Cadastrar</button>

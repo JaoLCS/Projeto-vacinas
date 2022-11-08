@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.shortcuts import render, redirect
 from core.form import *
-
+from django.utils import timezone
 #Postos
 def index(request):
     return render(request, 'admin-dashboard.html')
@@ -62,6 +62,14 @@ def vac_index(request):
     pacote = {"vacinaChave": vacina}
     return render(request, "vac-index.html", pacote)
 
+def vac_day_index(request):
+    hoje = timezone.now()
+    data = hoje.weekday()
+    vacina = vacinas.objects.filter(vac_disponibilidade = 1, vac_dias = data)
+
+    pacote = {"vacinaChave": vacina}
+    return render(request, "vac-day-index.html", pacote)
+
 def vac_create(request):
     form = vacinasForm(request.POST or None)
     if form.is_valid():
@@ -72,7 +80,8 @@ def vac_create(request):
 
 def  vac_show(request, id_vacina):
     vacina = vacinas.objects.get(pk = id_vacina)
-    pacote = {"vacinaChave": vacina}
+    dias = vacina.vac_dias.all()
+    pacote = {"vacinaChave": vacina, "dias":dias}
     return render(request, "vac-show.html",pacote)
 
 def vac_update(request, id_vacina):

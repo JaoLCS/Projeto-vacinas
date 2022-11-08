@@ -1,0 +1,39 @@
+{%extends 'layouts/pages-blank.html'%}
+
+{%block title %}Vacinas{%endblock title%}
+{%block page-name%}Vacinas de hoje{%endblock page-name%}
+
+{%block main-content%}
+<!-- Default Table -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tipo Vacina</th>
+      <th scope="col">Posto</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Disponibilidade</th>     
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for i in vacinaChave%}
+    <tr>
+        <td>{{i.vac_tipo_vacina}}</td>
+        <td>{{i.vac_posto}}</td>
+        <td>{{i.vac_posto.pos_bairro}}</td>
+        <td>{{i.vac_quantidade}}</td>
+        {%if i.vac_disponibilidade%}
+        <td><span class="badge bg-success">Disponível</span></td>
+        {% else %}
+        <td><span class="badge bg-danger">Indisponível</span></td>
+        {% endif %}
+        <td>
+            <a href="{%url 'show_vacinas' i.id%}">Mais informações</a>
+        </td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+<!-- End Default Table Example -->
+{%endblock main-content%}

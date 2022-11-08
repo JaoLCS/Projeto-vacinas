@@ -20,7 +20,7 @@ from core.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', views.index),
+    path('', views.vac_day_index),
     #Postos
     path('posindex/', pos_index, name= "lista_postos"),
     path('poscreate/', pos_create, name= "create_postos"),
