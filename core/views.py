@@ -3,6 +3,7 @@ from .models import *
 from django.shortcuts import render, redirect
 from core.form import *
 from django.utils import timezone
+from datetime import date
 #Postos
 def index(request):
     return render(request, 'admin-dashboard.html')
@@ -65,8 +66,9 @@ def vac_index(request):
 def vac_day_index(request):
     hoje = timezone.now()
     data = hoje.isoweekday()
+    x = date.today()
     vacina = vacinas.objects.filter(vac_disponibilidade = 1, vac_dias = data)
-    pacote = {"vacinaChave": vacina}
+    pacote = {"vacinaChave": vacina, "dia":x}
     return render(request, "vac-day-index.html", pacote)
 
 def vac_create(request):
